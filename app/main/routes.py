@@ -7,4 +7,4 @@ from . import main
 @main.route('/')
 @main.route('/overview')
 def overview(callback=None):
-	return render_template('overview.html')
+	return render_template('game.html')

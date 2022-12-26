@@ -1,0 +1,121 @@
+@font-face {
+    font-family: 'Ligurino';
+    src: url('../fonts/Ligurino-Bold.eot');
+    src: url('../fonts/Ligurino-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Ligurino-Bold.woff2') format('woff2'),
+        url('../fonts/Ligurino-Bold.woff') format('woff'),
+        url('../fonts/Ligurino-Bold.ttf') format('truetype'),
+        url('../fonts/Ligurino-Bold.svg#Ligurino-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+html,
+body {
+    margin: 0;
+
+    width: 100%;
+    height: 100%;
+
+    font-family: 'Ligurino' !important;
+    color: #ffffff;
+
+    text-align: center;
+}
+
+body {
+    background: linear-gradient(45deg, rgba(58, 73, 114, 1) 0%, rgba(88, 32, 118, 1) 50%, rgba(72, 93, 140, 1) 79%);
+
+    font-size: 2.2em;
+}
+
+.container-fluid, .container {
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-end;
+    align-items: stretch;
+}
+
+.row.top {
+    flex-grow: 1;
+}
+
+.row.bottom {}
+
+/* Questions */
+
+.box {
+    padding: 0.20em;
+}
+
+.box.answer {
+    text-align: left;
+}
+
+.yellow {
+    background-color: #d4e32d;
+    color: #000000;
+
+    background: linear-gradient(to left, #d4e32d 50%, #ffffff 50%);
+    background-size: 200% 100%;
+    transition: color 1s;
+    background-position: right bottom;
+
+}
+
+.yellow.correction:active,
+.yellow.correct {
+    transition: all 1s ease;
+    background-position: left bottom;
+}
+
+.yellow.grayed {
+    color: #A29C1E;
+}
+
+.question .no {
+    float: left;
+}
+
+.score {
+    font-size: 3em !important;
+
+    background-color: #0055C0;
+
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2em;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+
+.score:before{
+    content: "";
+    display: block;
+    padding-top: 100%;  /* initial ratio of 1:1*/
+}
+
+.answers, .following {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: stretch;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.answers {
+    padding-right: 0 !important;
+}
+
+.following {
+    text-align: center;
+}
