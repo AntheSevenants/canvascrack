@@ -44,7 +44,13 @@ body {
     flex-grow: 1;
 }
 
-.row.bottom {}
+.row.bottom {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+}
 
 /* Questions */
 
@@ -117,5 +123,13 @@ body {
 }
 
 .following {
-    text-align: center;
+    text-align: center;;
+}
+
+.score.review {
+    visibility: hidden;
+}
+
+.response.review, .following.review {
+    display: none;
 }
