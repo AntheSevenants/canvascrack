@@ -106,6 +106,7 @@ class Canvascrack(Gameshow):
         # If the challenger has already responded to this round, do not accept a response
         if self.check_response_prohibited(self.challenger_response_history):
             print("Challenger has already responded for this round. Rejecting response")
+            return
 
         self.challenger_response_history.append(answer_index)
         self.crack_response_time = True
@@ -115,10 +116,12 @@ class Canvascrack(Gameshow):
         # If it's not yet crack response time, do not accept a response
         if not self.crack_response_time:
             print("Not yet crack response time")
+            return
 
         # If the crack has already responded to this round, do not accept a response
         if self.check_response_prohibited(self.crack_response_history):
             print("Crack has already responded for this round. Rejecting response")
+            return
 
         self.crack_response_history.append(answer)
         self.crack_response_time = False
