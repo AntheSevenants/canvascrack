@@ -56,7 +56,7 @@ class Canvascrack(Gameshow):
             self.advance_subround_answering_stage()
         else:
             if not self.score_released:
-                self.score_released = True
+                self.release_score()
                 return
 
             self.advance_subround_review_stage()
@@ -112,3 +112,28 @@ class Canvascrack(Gameshow):
         # If the crack has already responded to this round, do not accept a response
         if self.check_response_prohibited(self.crack_response_history):
             print("Crack has already responded for this round. Rejecting response")
+
+    #
+    # Scoring
+    #
+    
+    def release_score(self):
+        challenger_response_index = self.challenger_response_history[self.current_subround]
+        correct_response_index = self.questions[self.current_round][self.current_subround].correct
+        
+        crack_response = self.crack_response_history[self.current_subround]
+
+        # Challenger is correct
+        if challenger_response_index == correct_response_index:
+            self.players[0].points += 1
+            
+            # Crack has followed
+            if crack_response:
+                self.players[1].points += 1
+        # Challenger is wrong
+        else:
+            # Crack can still gain points if they did not follow
+            if not crack_response:
+                self.players[1].points += 1
+        
+        self.score_released = True
