@@ -13,6 +13,8 @@ class Canvascrack(Gameshow):
         self.review_stage = False
         # Whether the score has been revealed yet
         self.score_released = False
+        # Whether it's time for the crack to follow or not
+        self.crack_response_time = False 
 
         self.load_questions(questions_file)
 
@@ -106,12 +108,15 @@ class Canvascrack(Gameshow):
             print("Challenger has already responded for this round. Rejecting response")
 
         self.reset_challenger_response_history.append(answer_index)
+        self.crack_response_time = True
 
     # Crack responses
     def crack_receive_answer(self, answer):
         # If the crack has already responded to this round, do not accept a response
         if self.check_response_prohibited(self.crack_response_history):
             print("Crack has already responded for this round. Rejecting response")
+
+        self.crack_response_time = False
 
     #
     # Scoring
