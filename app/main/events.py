@@ -15,8 +15,14 @@ def io_connect():
     print("Client connected")
     broadcast_state()
 
-
 def broadcast_state():
     game = current_app.config["game"]
 
     socketio.emit("state", game.as_dict())
+
+@socketio.on('challenger_response', namespace=namespace)
+def io_challenger_response(answer_index):
+    game = current_app.config["game"]
+
+    game.challenger_receive_answer(answer_index)
+    broadcast_state()

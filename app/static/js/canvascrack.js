@@ -25,6 +25,10 @@ class Canvascrack extends Gameshow {
     renderStateGame(state) {
 
     }
+
+    challengerRespond(answerIndex) {
+        this.websocket.emit("challenger_response", answerIndex);
+    }
 }
 
 canvascrack = new Canvascrack();
