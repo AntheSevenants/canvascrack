@@ -112,6 +112,10 @@ class Canvascrack(Gameshow):
 
     # Crack responses
     def crack_receive_answer(self, answer):
+        # If it's not yet crack response time, do not accept a response
+        if not self.crack_response_time:
+            print("Not yet crack response time")
+
         # If the crack has already responded to this round, do not accept a response
         if self.check_response_prohibited(self.crack_response_history):
             print("Crack has already responded for this round. Rejecting response")
