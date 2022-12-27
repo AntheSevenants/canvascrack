@@ -102,7 +102,7 @@ class Canvascrack(Gameshow):
         self.crack_response_history = []
 
     def check_response_prohibited(self, history):
-        return len(history) == self.current_subround - 1
+        return len(history) == self.current_subround + 1
 
     # Challenger responses
     def challenger_receive_answer(self, answer_index):
