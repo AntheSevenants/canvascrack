@@ -23,7 +23,7 @@ parser.add_argument('questions_directory', type=str,
 args = parser.parse_args();
 
 if args.function == "listen":
-	app = create_app(debug=True)
+	app = create_app(args.questions_directory, debug=True)
 	app.jinja_env.auto_reload = True
 	app.config['TEMPLATES_AUTO_RELOAD'] = True
 
