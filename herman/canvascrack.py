@@ -7,7 +7,7 @@ class Canvascrack(Gameshow):
     def __init__(self, players, questions_file):
         super().__init__("De Canvascrack", ["Tafel 1"], 2)
 
-        self.players = players
+        self.player_names = players
 
         # Whether we're in the review stage of the questions
         self.review_stage = False
