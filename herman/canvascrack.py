@@ -20,6 +20,9 @@ class Canvascrack(Gameshow):
 
         self.set_current_question()
 
+        self.reset_challenger_response_history()
+        self.reset_crack_response_history()
+
     #
     # Question loading
     #
