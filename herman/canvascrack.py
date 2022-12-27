@@ -107,7 +107,7 @@ class Canvascrack(Gameshow):
         if self.check_response_prohibited(self.challenger_response_history):
             print("Challenger has already responded for this round. Rejecting response")
 
-        self.reset_challenger_response_history.append(answer_index)
+        self.challenger_response_history.append(answer_index)
         self.crack_response_time = True
 
     # Crack responses
@@ -116,6 +116,7 @@ class Canvascrack(Gameshow):
         if self.check_response_prohibited(self.crack_response_history):
             print("Crack has already responded for this round. Rejecting response")
 
+        self.crack_response_history.append(answer_index)
         self.crack_response_time = False
 
     #
