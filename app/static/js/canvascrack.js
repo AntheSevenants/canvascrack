@@ -7,6 +7,8 @@ class Canvascrack extends Gameshow {
         // Pass to super method
         super.renderState(state);
 
+        Questions.renderState(state);
+
         // Host/client-specific rendering
         if (host) {
             this.renderStateHost(state);
