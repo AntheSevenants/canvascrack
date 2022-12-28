@@ -56,6 +56,11 @@ class Canvascrack(Gameshow):
     def set_current_question(self):
         self.current_question = self.questions[self.current_round][self.current_subround]
 
+    def advance_subround(self):
+        super().advance_subround()
+
+        self.set_current_question()
+
     def advance(self):
         if not self.review_stage:
             self.advance_subround_answering_stage()
@@ -78,7 +83,7 @@ class Canvascrack(Gameshow):
                 self.current_subround = 0
                 return
 
-        super().advance_subround()
+        self.advance_subround()
 
     def advance_subround_review_stage(self):
         # All questions for this round have been reviewed
@@ -87,7 +92,7 @@ class Canvascrack(Gameshow):
             pass
             return
 
-        super().advance_subround()
+        self.advance_subround()
 
     #
     # Response logic
