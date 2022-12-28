@@ -62,7 +62,7 @@ body {
     text-align: left;
 }
 
-a.answer {
+a {
     text-decoration: none;
 }
 
@@ -136,4 +136,19 @@ a.answer {
 
 .response.review, .following.review {
     display: none;
+}
+
+#crackpanel {
+    top: 1em;
+    left: 0;
+    right: 0;
+
+    position: fixed;
+    width: 100%;
+}
+
+.button {
+    padding: 0.5em;
+
+    cursor: pointer;
 }
