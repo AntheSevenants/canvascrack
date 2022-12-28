@@ -23,6 +23,8 @@ class Questions {
         }
 
         const questionText = state.current_question.short;
-        const questionElement = document.getElementById("question").innerHTML = questionText;
+        document.getElementById("question").innerHTML = questionText;
+
+        document.getElementById("question_no").innerHTML = `${state.current_subround + 1}.`;
     }
 }
