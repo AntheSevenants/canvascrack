@@ -8,6 +8,7 @@ class Canvascrack extends Gameshow {
         super.renderState(state);
 
         Questions.renderState(state);
+        Crack.renderState(state);
 
         // Host/client-specific rendering
         if (host) {
@@ -28,6 +29,10 @@ class Canvascrack extends Gameshow {
 
     challengerRespond(answerIndex) {
         this.websocket.emit("challenger_response", answerIndex);
+    }
+
+    crackRespond(answer) {
+        this.websocket.emit("crack_response", answer);
     }
 }
 
