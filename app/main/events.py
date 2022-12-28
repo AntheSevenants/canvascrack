@@ -26,3 +26,10 @@ def io_challenger_response(answer_index):
 
     game.challenger_receive_answer(answer_index)
     broadcast_state()
+
+@socketio.on('crack_response', namespace=namespace)
+def io_crack_response(answer):
+    game = current_app.config["game"]
+
+    game.crack_receive_answer(answer)
+    broadcast_state()

@@ -129,6 +129,8 @@ class Canvascrack(Gameshow):
         self.crack_response_history.append(answer)
         self.crack_response_time = False
 
+        self.advance_subround()
+
     #
     # Scoring
     #
