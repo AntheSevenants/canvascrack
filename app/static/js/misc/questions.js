@@ -42,6 +42,12 @@ class Questions {
 
                 if (i == state.current_question.correct && state.review_stage_inner == 2) {
                     answerElementOuter.classList.add("correct");
+                    setTimeout(() => {
+                        // First, add "greyed" to all options
+                        document.querySelectorAll(".answer").forEach(element => element.classList.add("greyed"));
+                        // Then, remove it from the correct answer's element
+                        answerElementOuter.classList.remove("greyed");
+                    }, 1000);
                 }
             }
         }
