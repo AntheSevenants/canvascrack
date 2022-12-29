@@ -25,6 +25,7 @@ class Questions {
             }
 
             answerElementOuter.classList.remove("greyed");
+            answerElementOuter.classList.remove("correct");
             if ((state.crack_response_time || state.review_stage) && i != challengerResponseIndex) {
                 answerElementOuter.classList.add("greyed");
             }
@@ -34,7 +35,13 @@ class Questions {
                 crackResponseElement.innerHTML = "&nbsp;"
 
                 if (i == challengerResponseIndex) {
-                    // todo conditionally show crack response
+                    if (state.review_stage_inner >= 1) {
+                        crackResponseElement.innerHTML = state.crack_response_history[state.current_subround] ? "Ja" : "Nee";
+                    }
+                }
+
+                if (i == state.current_question.correct && state.review_stage_inner == 2) {
+                    answerElementOuter.classList.add("correct");
                 }
             }
         }

@@ -20,7 +20,7 @@ class Canvascrack extends Gameshow {
     }
 
     renderStateHost(state) {
-
+        document.getElementById("button_advance").onclick = () => { this.advance(); };
     }
 
     renderStateGame(state) {
@@ -33,6 +33,10 @@ class Canvascrack extends Gameshow {
 
     crackRespond(answer) {
         this.websocket.emit("crack_response", answer);
+    }
+
+    advance() {
+        this.websocket.emit("advance");
     }
 }
 

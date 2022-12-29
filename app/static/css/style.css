@@ -156,3 +156,10 @@ a {
 
     cursor: pointer;
 }
+
+.button.float {
+	position: fixed;
+
+	right: 1em;
+	bottom: 1em;
+}
