@@ -101,7 +101,7 @@ class Canvascrack(Gameshow):
         self.review_stage_inner = 0
 
         # All questions for this round have been reviewed
-        if self.current_subround == 5:
+        if self.current_subround == 4:
             # TODO: implement logic
             pass
             return
