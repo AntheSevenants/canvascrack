@@ -76,6 +76,7 @@ class Canvascrack(Gameshow):
             if not self.review_stage:
                 self.review_stage = True
                 self.current_subround = 0
+                self.set_current_question()
                 return
 
         super().advance_subround()
