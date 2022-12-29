@@ -138,6 +138,10 @@ a {
     display: none;
 }
 
+.reviewing .review {
+    display: flex;
+}
+
 #crackpanel {
     top: 1em;
     left: 0;
