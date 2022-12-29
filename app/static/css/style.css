@@ -164,3 +164,8 @@ a {
 	right: 1em;
 	bottom: 1em;
 }
+
+.branding {
+    height: 80%;
+    width: auto;
+}

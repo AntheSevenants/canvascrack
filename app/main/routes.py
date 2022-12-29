@@ -8,7 +8,7 @@ from . import main
 @main.route('/')
 @main.route('/overview')
 def overview():
-    return render_template('game.html')
+    return render_template('landing.html')
 
 @main.route('/challenger')
 def challenger():

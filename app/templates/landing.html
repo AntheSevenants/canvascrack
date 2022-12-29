@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container" id="landing">
+    <div class="row flex-grow-1 justify-content-center align-items-center">
+        <img id="branding" class="branding spin" src="/static/img/logo.png">
+    </div>
+    <div class="row" id="welcome">
+        <h1 id="textbranding" class="textbranding">C A N V A S C R A C K</h1>
+        <p>Welkom bij de Canvascrack. Selecteer wie je bent en quizzen maar!</p>
+        <div id="welcome_controls">
+            <a href="/challenger">
+                <p class="box wide yellow">
+                    Uitdager
+                </p>
+            </a>
+            <a href="/crack">
+                <p class="box wide yellow">
+                    Crack
+                </p>
+            </a>
+            <a href="/presenter">
+                <p class="box wide yellow">
+                    Presentator
+                </p>
+            </a>
+            <a href="/viewer">
+                <p class="box wide yellow">
+                    Kijker
+                </p>
+            </a>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}
