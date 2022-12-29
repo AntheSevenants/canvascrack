@@ -33,3 +33,11 @@ def io_crack_response(answer):
 
     game.crack_receive_answer(answer)
     broadcast_state()
+
+
+@socketio.on('advance', namespace=namespace)
+def io_advance():
+    game = current_app.config["game"]
+
+    game.advance()
+    broadcast_state()
