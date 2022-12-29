@@ -21,3 +21,7 @@ def crack():
 @main.route('/presenter')
 def presenter():
     return render_template('game.html', game_mode="presenter")
+
+@main.route('/viewer')
+def viewer():
+    return render_template('game.html', game_mode="viewer")
