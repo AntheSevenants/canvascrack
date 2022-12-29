@@ -157,7 +157,7 @@ class Canvascrack(Gameshow):
     
     def release_score(self):
         challenger_response_index = self.challenger_response_history[self.current_subround]
-        correct_response_index = self.questions[self.current_round][self.current_subround].correct
+        correct_response_index = self.questions[self.current_round][self.current_subround]["correct"]
         
         crack_response = self.crack_response_history[self.current_subround]
 
