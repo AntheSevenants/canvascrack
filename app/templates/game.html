@@ -2,14 +2,17 @@
 
 {% block content %}
 <script type="text/javascript">
-	host = true;
+	gameMode = "{{ game_mode }}";
 </script>
 <div class="container" id="game">
-	<a class="button yellow float host" id="button_advance">&gt;</button>
+	{% if game_mode == "presenter" %}
+	<a class="button yellow float host" id="button_advance">&gt;</a>
+	{% elif game_mode == "crack" %}
 	<div id="crackpanel">
 		<a class="button yellow" id="button_follow">Volgen</a>
 		<a class="button yellow" id="button_no_follow">Niet volgen</a>
 	</div>
+	{% endif %}
 	<div class="row top">
 		top
 	</div>

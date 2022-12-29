@@ -15,11 +15,14 @@ class Canvascrack extends Gameshow {
         super.renderState(state);
 
         Questions.renderState(state);
-        Crack.renderState(state);
+
+        if (gameMode == "crack") {
+            Crack.renderState(state);
+        }
         Scores.updateState(state, this.latestState);
 
         // Host/client-specific rendering
-        if (host) {
+        if (gameMode == "presenter") {
             this.renderStateHost(state);
         }
         else {

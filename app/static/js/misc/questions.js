@@ -20,7 +20,7 @@ class Questions {
             answerElement.innerHTML = answer;
 
             const answerElementOuter = document.getElementById(`question_option_${i}`);
-            if (host) {
+            if (gameMode == "challenger") {
                 answerElementOuter.onclick = () => { canvascrack.challengerRespond(i); };
             }
 
