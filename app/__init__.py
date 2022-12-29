@@ -12,6 +12,7 @@ def create_app(questions_directory, debug=False):
     app.debug = debug
     app.config['SECRET_KEY'] = 'miep'
 
+    app.config['questions_directory'] = questions_directory
     app.config['game'] = Canvascrack(
         ["Uitdager", "Crack"], f"{questions_directory}/questions.json")
 
