@@ -11,6 +11,11 @@ class Canvascrack(Gameshow):
 
         # Whether we're in the review stage of the questions
         self.review_stage = False
+        # The specific review stage
+        # 0 = no reveal yet
+        # 1 = reveal crack follow/no follow
+        # 2 = reveal correct answer (and add scores)
+        self.review_stage_inner = 0
         # Whether the score has been revealed yet
         self.score_released = False
         # Whether it's time for the crack to follow or not
@@ -56,14 +61,24 @@ class Canvascrack(Gameshow):
     def set_current_question(self):
         self.current_question = self.questions[self.current_round][self.current_subround]
 
+    def advance(self):
+        if not self.review_stage:
+            return
+
+        self.review_stage_inner += 1
+
+        # All information revealed for this subround, move to next one
+        if self.review_stage_inner == 3:
+            self.advance_subround()
+            return
+
+        if self.review_stage_inner == 2:
+            self.release_score()
+
     def advance_subround(self):
         if not self.review_stage:
             self.advance_subround_answering_stage()
         else:
-            if not self.score_released:
-                self.release_score()
-                return
-
             self.advance_subround_review_stage()
 
     def advance_subround_answering_stage(self):
@@ -83,6 +98,8 @@ class Canvascrack(Gameshow):
         self.set_current_question()
 
     def advance_subround_review_stage(self):
+        self.review_stage_inner = 0
+
         # All questions for this round have been reviewed
         if self.current_subround == 5:
             # TODO: implement logic
