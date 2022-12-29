@@ -27,7 +27,8 @@ class Scores {
                 break;
             case 1:
                 // Check whether we have to update challenger of crack score
-                const differenceIndex = newScores.indexOf(1);
+                const differenceIndex = scoreDifferences.indexOf(1);
+                
                 const scoreUpdateFunction = differenceIndex == 0 ?
                     () => { this.setChallengerScore(newScores[0]); } :
                     () => { this.setCrackScore(newScores[1]); };
