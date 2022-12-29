@@ -20,6 +20,7 @@ class Canvascrack extends Gameshow {
             Crack.renderState(state);
         }
         Scores.updateState(state, this.latestState);
+        AuxiliaryMedia.renderState(state);
 
         // Host/client-specific rendering
         if (gameMode == "presenter") {
