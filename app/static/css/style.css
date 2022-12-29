@@ -140,6 +140,7 @@ a {
 
 .reviewing .review {
     display: flex;
+    visibility: visible;
 }
 
 #crackpanel {

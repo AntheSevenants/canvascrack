@@ -1,14 +1,22 @@
 class Canvascrack extends Gameshow {
     constructor() {
         super();
+        this.latestState = null;
     }
 
     renderState(state) {
+        // If latest state doesn't exist, update it
+        if (this.latestState == null) {
+            this.latestState = state;
+            Scores.renderState(state);
+        }
+
         // Pass to super method
         super.renderState(state);
 
         Questions.renderState(state);
         Crack.renderState(state);
+        Scores.updateState(state, this.latestState);
 
         // Host/client-specific rendering
         if (host) {
@@ -17,6 +25,9 @@ class Canvascrack extends Gameshow {
         else {
             this.renderStateGame(state);
         }
+
+        // Update latest state
+        this.latestState = state;
     }
 
     renderStateHost(state) {
