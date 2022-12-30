@@ -14,6 +14,23 @@ class Canvascrack extends Gameshow {
         // Pass to super method
         super.renderState(state);
 
+        // Transition from questions to review stage
+        if (state.review_stage && !this.latestState.review_stage) {
+            Sound.playSound("bumper");
+        }
+
+        if (state.crack_response_time && !this.latestState.crack_response_time) {
+            Sound.playSound("choice");
+        }
+
+        if (state.review_stage_inner == 1 && this.latestState.review_stage_inner != 1) {
+            Sound.playSound("crack_response");
+        }
+
+        if (state.review_stage_inner == 2 && this.latestState.review_stage_inner != 2) {
+            Sound.playSound("sweep");
+        }
+
         Questions.renderState(state);
 
         if (gameMode == "crack") {

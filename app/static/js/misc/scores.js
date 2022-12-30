@@ -20,18 +20,26 @@ class Scores {
             case 2:
                 setTimeout(() => {
                     this.setChallengerScore(newScores[0]);
+                    Sound.playSound("point");
                 }, 1700);
                 setTimeout(() => {
                     this.setCrackScore(newScores[1]);
+                    Sound.playSound("point");
                 }, 1700 + 1000);
                 break;
             case 1:
                 // Check whether we have to update challenger of crack score
                 const differenceIndex = scoreDifferences.indexOf(1);
-                
+
                 const scoreUpdateFunction = differenceIndex == 0 ?
-                    () => { this.setChallengerScore(newScores[0]); } :
-                    () => { this.setCrackScore(newScores[1]); };
+                    () => {
+                        this.setChallengerScore(newScores[0]);
+                        Sound.playSound("point");
+                    } :
+                    () => {
+                        this.setCrackScore(newScores[1]);
+                        Sound.playSound("point");
+                    };
                 setTimeout(scoreUpdateFunction, 1700);
                 break;
         }
