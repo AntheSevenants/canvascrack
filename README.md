@@ -46,6 +46,7 @@ These instructions need to be followed every time you want to run the quiz progr
 3. Run `canvascrack.py`:  
     `python3 canvascrack.py listen questions_directory`  
     `questions_directory` is the path to the directory where your questions are stored
+4. You can now open http://127.0.0.1:10966/ in your browser and start playing. If other players are playing on their own devices, make sure they can reach your computer from its IP.
 
 ## Question set design
 
