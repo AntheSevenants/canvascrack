@@ -76,3 +76,9 @@ Inside your question set directory, there should be a file called `questions.jso
     - `answers`: a list of the three possible answers to this question
     - `correct`: the index of the correct answer, 0-indexed
         - in the example, "Lightning and thunder" is the correct answer, which is answer 1 (second answer starting from zero)
+
+## To-do
+
+* Implement other tables
+* Implement audio and video player
+* Add Herman Van Molle
