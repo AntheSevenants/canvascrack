@@ -73,7 +73,7 @@ class Canvascrack(Gameshow):
     def advance(self):
         if not self.review_stage:
             # Increment inner question stage
-            if self.question_stage_inner <= 5:
+            if self.question_stage_inner < 5:
                 self.question_stage_inner += 1
 
             return
