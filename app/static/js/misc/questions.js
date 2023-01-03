@@ -18,8 +18,15 @@ class Questions {
             const answerElement = document.getElementById(`question_option_inner_${i}`);
 
             answerElement.innerHTML = answer;
+            answerElement.classList.add("d-none");
+
+            // Question release logic
+            if (state.question_stage_inner - 3 >= i) {
+                answerElement.classList.remove("d-none");
+            }
 
             const answerElementOuter = document.getElementById(`question_option_${i}`);
+
             if (gameMode == "challenger") {
                 answerElementOuter.onclick = () => { canvascrack.challengerRespond(i); };
             }
@@ -53,7 +60,14 @@ class Questions {
         }
 
         const questionText = state.current_question.short;
-        document.getElementById("question").innerHTML = questionText;
+        const questionElement = document.getElementById("question");
+        questionElement.classList.add("d-none");
+        questionElement.innerHTML = questionText;
+
+        // Only show question if question stage inner >= 1
+        if (state.question_stage_inner >= 1) {
+            questionElement.classList.remove("d-none");
+        }
 
         document.getElementById("question_no").innerHTML = `${state.current_subround + 1}.`;
     }
