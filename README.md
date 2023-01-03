@@ -81,5 +81,5 @@ Inside your question set directory, there should be a file called `questions.jso
 ## To-do
 
 * Implement other tables
-* Implement audio and video player
+* Implement video player
 * Add Herman Van Molle
