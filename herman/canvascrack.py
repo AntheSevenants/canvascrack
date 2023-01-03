@@ -97,6 +97,8 @@ class Canvascrack(Gameshow):
             print("Not all players have answered yet. Advancement rejected")
             return
 
+        self.question_stage_inner = 0
+
         # All questions for this round have been asked
         if self.current_subround == 4:
             if not self.review_stage:
@@ -109,7 +111,6 @@ class Canvascrack(Gameshow):
         self.set_current_question()
 
     def advance_subround_review_stage(self):
-        self.question_stage_inner = 0
         self.review_stage_inner = 0
 
         # All questions for this round have been reviewed
