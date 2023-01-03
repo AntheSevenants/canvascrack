@@ -7,7 +7,16 @@ class Canvascrack(Gameshow):
     def __init__(self, players, questions_file):
         super().__init__("De Canvascrack", ["Tafel 1"], 2)
 
-        self.player_names = players
+        self.player_names = players 
+
+        # The specific question asked review stage
+        # 0 = nothing revealed
+        # 1 = question reveal
+        # 2 = sound / video play
+        # 3 = first answer revealed
+        # 4 = second answer revealed
+        # 5 = third answer revelaed
+        self.question_stage_inner = 0
 
         # Whether we're in the review stage of the questions
         self.review_stage = False
@@ -63,9 +72,11 @@ class Canvascrack(Gameshow):
 
     def advance(self):
         if not self.review_stage:
-            return
+            # Increment inner question stage
+            if self.question_stage_inner <= 5:
+                self.question_stage_inner += 1
 
-        self.review_stage_inner += 1
+            return
 
         # All information revealed for this subround, move to next one
         if self.review_stage_inner == 3:
@@ -98,6 +109,7 @@ class Canvascrack(Gameshow):
         self.set_current_question()
 
     def advance_subround_review_stage(self):
+        self.question_stage_inner = 0
         self.review_stage_inner = 0
 
         # All questions for this round have been reviewed
